@@ -9,7 +9,7 @@ public class Gestor_Pagos {
 
 	public boolean peticionCobro(double coste) {
 	    if(comprobarSaldo(coste)) {
-			cuenta.setSaldo(cuenta.getSaldo() - coste);
+			cuenta.setsaldo(cuenta.getsaldo() - coste);
 			return true;
 		} else {
 			return false;
@@ -17,7 +17,7 @@ public class Gestor_Pagos {
 	}
 
 	public boolean comprobarSaldo(double coste) {
-	    return cuenta.getSaldo >= coste;
+	    return cuenta.getsaldo() >= coste;
 	}
 
 	public void login() {

@@ -1,9 +1,11 @@
+import java.util.Date;
+import java.util.Vector;
+
 public class Alquiler {
 
 	private int alquiler_id;
-	private int film_id;
-	private date fechain;
-	private date fechafin;
+	private Date fechain;
+	private Date fechafin;
 	private double costetotal;
 
 	public Alquiler(int alquiler_id) {
@@ -12,13 +14,29 @@ public class Alquiler {
 		this.alquiler_id = alquiler_id;
 	}
 
-	public String getData() {
+	public int getData() throws DataNotFound {
 		// TODO - Mostrar el resto de los datos
-	    return Integer.toString(alquiler_id);
+        try {
+    	   return read(alquiler_id);
+        } catch (Exception e) {
+        	throw new DataNotFound();
+        }
 	}
-
-	public int getFilm_id() {
-		return film_id;
+	public static int read(int alquiler_id) throws Exception{
+		String l,g;
+		int u = 0;
+		Vector<Object> aux = null;
+		String SQL_Consulta = "SELECT idfilm FROM alquiler WHERE id = '"+String.valueOf(alquiler_id)+"';";
+		
+		Agente a = Agente.getAgente();
+		Vector<Object> res = a.select(SQL_Consulta);
+		
+		if (res.size() == 1){
+			aux = (Vector<Object>) res.elementAt(0);
+			u=(int)aux.elementAt(0);
+		}
+		return u;
 	}
-
+       
 }
+

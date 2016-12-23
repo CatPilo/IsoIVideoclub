@@ -1,15 +1,18 @@
+import java.util.Vector;
+
 public class Enlace {
 
 	private String enlaceEncriptado;
+    private String enlacedesEncriptado;
+    private int film_id;
 
-	public void desencriptar() {
-		// TODO - implement Enlace.desencriptar
-		throw new UnsupportedOperationException();
-	}
+    public String desencriptarEnlace(String link) {
+		// TODO: Implementar descifrado.
+    	return link;
+    }
 
-	public Enlace() {
-		// TODO - implement Enlace.Enlace
-		throw new UnsupportedOperationException();
+	public Enlace(int film_id) {
+		this.film_id = film_id;
 	}
 
 	public void notFound() {
@@ -17,14 +20,11 @@ public class Enlace {
 		throw new UnsupportedOperationException();
 	}
 
-	public void getEnlace() {
-		// TODO - implement Enlace.getEnlace
-		throw new UnsupportedOperationException();
+	public String getEnlace() {
+		try {
+			return desencriptarEnlace(BBDD.findEnlace(film_id));
+		} catch (Exception e) {
+			return null;
+		}
 	}
-
-	public void servidorOCupado() {
-		// TODO - implement Enlace.servidorOCupado
-		throw new UnsupportedOperationException();
-	}
-
 }

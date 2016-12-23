@@ -3,13 +3,17 @@ public class Gestor_Reproducción {
 	private Socio socio;
 	private Alquiler alquiler;
 	
-	public Gestor_Reproduccion(Socio socio) {
+	public Gestor_Reproducción(Socio socio) {
 		this.socio = socio;
 	}
 	
-	public String comprobarAlquiler(int alquiler_id) {
+	public int comprobarAlquiler(int alquiler_id) {
 	    this.alquiler = new Alquiler(alquiler_id);
-		return alquiler.getData();
+	    try {
+	    	return alquiler.getData();
+	    } catch (DataNotFound e){
+	    		return -1;
+	    }
 	}
 
 	public void obtenerEnlace() {
@@ -17,9 +21,9 @@ public class Gestor_Reproducción {
 		throw new UnsupportedOperationException();
 	}
 
-	public Enlace reproduccion() {
-		enlace Enlace = new Enlace(film_id);
-	    return 
+	public String reproduccion(int film_id) {
+		Enlace enlace = new Enlace(film_id);
+	    return enlace.getEnlace();
 	}
 
 	public void DaranotFound() {
