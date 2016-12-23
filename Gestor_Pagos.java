@@ -7,7 +7,7 @@ public class Gestor_Pagos {
 		this.socio = socio;
 	}
 
-	public boolean peticionCobro(double coste) {
+	public boolean peticionCobro(double coste) throws SaldoNotEnough {
 	    if(comprobarSaldo(coste)) {
 			cuenta.setsaldo(cuenta.getsaldo() - coste);
 			return true;
