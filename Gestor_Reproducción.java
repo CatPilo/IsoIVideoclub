@@ -1,8 +1,15 @@
 public class Gestor_Reproducción {
 
-	public void comprobarAlquiler() {
-		// TODO - implement Gestor_Reproducción.comprobarAlquiler
-		throw new UnsupportedOperationException();
+	private Socio socio;
+	private Alquiler alquiler;
+	
+	public Gestor_Reproduccion(Socio socio) {
+		this.socio = socio;
+	}
+	
+	public String comprobarAlquiler(int alquiler_id) {
+	    this.alquiler = new Alquiler(alquiler_id);
+		return alquiler.getData();
 	}
 
 	public void obtenerEnlace() {
@@ -10,9 +17,9 @@ public class Gestor_Reproducción {
 		throw new UnsupportedOperationException();
 	}
 
-	public void reproduccion() {
-		// TODO - implement Gestor_Reproducción.reproduccion
-		throw new UnsupportedOperationException();
+	public Enlace reproduccion() {
+		enlace Enlace = new Enlace(film_id);
+	    return 
 	}
 
 	public void DaranotFound() {

@@ -1,33 +1,27 @@
 public class Gestor_Pagos {
 
-	public void peticionCobro() {
-		// TODO - implement Gestor_Pagos.peticionCobro
-		throw new UnsupportedOperationException();
+	private Socio socio;
+	private Cuenta_banco cuenta;
+
+	public Gestor_Pagos(Socio socio) {
+		this.socio = socio;
 	}
 
-	public void comprobarSaldo() {
-		// TODO - implement Gestor_Pagos.comprobarSaldo
-		throw new UnsupportedOperationException();
+	public boolean peticionCobro(double coste) {
+	    if(comprobarSaldo(coste)) {
+			cuenta.setSaldo(cuenta.getSaldo() - coste);
+			return true;
+		} else {
+			return false;
+		}
 	}
 
-	public void Cobro() {
-		// TODO - implement Gestor_Pagos.Cobro
-		throw new UnsupportedOperationException();
-	}
-
-	public void infoTransacción() {
-		// TODO - implement Gestor_Pagos.infoTransacción
-		throw new UnsupportedOperationException();
+	public boolean comprobarSaldo(double coste) {
+	    return cuenta.getSaldo >= coste;
 	}
 
 	public void login() {
-		// TODO - implement Gestor_Pagos.login
-		throw new UnsupportedOperationException();
-	}
-
-	public void saldoNotEnough() {
-		// TODO - implement Gestor_Pagos.saldoNotEnough
-		throw new UnsupportedOperationException();
+		this.cuenta = new Cuenta_banco(socio);
 	}
 
 }
